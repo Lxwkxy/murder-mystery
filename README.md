@@ -1,18 +1,21 @@
 # Murder Mystery in Prolog
 
-A small logic programming project based on a three-suspect murder mystery. Each suspect is represented by `person(Name, Room, Weapon)`. The clues unify these terms until the murderer and every suspect's room and weapon are determined.
+A mini project for the Theory of Programming Languages course, exploring logic programming through a three-suspect murder mystery. Each suspect is represented by `person(Name, Room, Weapon)`. The clues unify these terms until the murderer and every suspect's room and weapon are determined.
 
 ## Requirements
 
-- SWI-Prolog
+- [SWI-Prolog](https://www.swi-prolog.org/download/stable) installed on Windows, macOS, or Linux.
+- The `swipl` command available in your terminal's `PATH`. Check with `swipl --version`. If the command is not found, add your SWI-Prolog installation's executable directory to `PATH`, or invoke the executable using its location on your own machine.
 
-The project uses only SWI-Prolog's standard libraries; there are no packages to install.
+The project uses only SWI-Prolog's standard libraries; there are no additional packages to install.
 
-## Run
+## Get started
 
-From the project directory:
+Clone the repository (or download and extract its ZIP), then open a terminal in the project directory:
 
 ```sh
+git clone https://github.com/Lxwkxy/murder-mystery.git
+cd murder-mystery
 swipl -q -s main.pl
 ```
 
@@ -22,13 +25,7 @@ Expected output:
 Murderer: plum
 ```
 
-On this Windows machine, SWI-Prolog is installed outside `PATH`. Run it from PowerShell with its full path:
-
-```powershell
-& 'C:\Program Files\swipl\bin\swipl.exe' -q -s main.pl
-```
-
-To explore the solution in the Prolog REPL:
+To explore the solution in the Prolog REPL from the project directory:
 
 ```sh
 swipl -q -s src/murder_mystery.pl
@@ -42,14 +39,10 @@ Suspects = [person(scarlett, lounge, rope), person(mustard, study, knife), perso
 
 ## Test
 
+From the project directory:
+
 ```sh
 swipl -q -s tests/murder_mystery_tests.pl -g run_tests -t halt
-```
-
-PowerShell on this machine:
-
-```powershell
-& 'C:\Program Files\swipl\bin\swipl.exe' -q -s tests/murder_mystery_tests.pl -g run_tests -t halt
 ```
 
 The tests check that there is exactly one murderer and exactly one complete solution.
